@@ -11,6 +11,7 @@ public class MeshopApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("First Test");
 	}
 
 }
