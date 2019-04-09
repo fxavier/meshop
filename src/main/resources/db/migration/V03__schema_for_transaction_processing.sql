@@ -31,23 +31,23 @@ CONSTRAINT fk_cartao_credito_user_account
   FOREIGN KEY(codigo_user) REFERENCES user_account(codigo)
 );
 
-CREATE TABLE encomenda(
+CREATE TABLE pedido_compra(
 codigo BIGSERIAL NOT NULL,
-data_encomenda DATE,
+data_pedido DATE,
 valor_total NUMERIC(19, 2),
 status VARCHAR(20) NOT NULL,
 codigo_user BIGINT NOT NULL,
 PRIMARY KEY(codigo),
-CONSTRAINT fk_encomenda_user_account
+CONSTRAINT fk_pedido_user_account
   FOREIGN KEY(codigo_user) REFERENCES user_account(codigo)
 );
 
-CREATE TABLE detalhes_encomenda(
+CREATE TABLE detalhes_pedido(
 codigo BIGSERIAL NOT NULL,
 codigo_produto BIGINT NOT NULL,
 quantidade INTEGER NOT NULL,
 PRIMARY KEY(codigo),
-CONSTRAINT fk_detalhes_encomenda_codigo_produto
+CONSTRAINT fk_detalhes_pedido_codigo_produto
   FOREIGN KEY(codigo) REFERENCES produto(codigo)
 );
 
@@ -122,8 +122,8 @@ charge_code BIGINT,
 status VARCHAR(100),
 data_frete DATE,
 valor_frete NUMERIC(19, 2) NOT NULL,
-codigo_encomenda BIGINT NOT NULL,
+codigo_pedido BIGINT NOT NULL,
 PRIMARY KEY(codigo),
 CONSTRAINT fk_frete_encomenda
-  FOREIGN KEY(codigo_encomenda) REFERENCES encomenda(codigo)
+  FOREIGN KEY(codigo_pedido) REFERENCES pedido_compra(codigo)
 );
