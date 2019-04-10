@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -17,6 +18,17 @@ public class Categoria {
     @EqualsAndHashCode.Include
     private Long codigo;
 
+    @NotBlank(message = "categoria-1")
     private String nome;
+
+    @Transient
+    public Boolean isNovo() {
+        return this.codigo == null;
+    }
+
+    @Transient
+    public Boolean exists() {
+        return this.codigo != null;
+    }
 
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -17,6 +19,7 @@ public class CartaoCredito {
     @EqualsAndHashCode.Include
     private Long codigo;
 
+    @NotBlank(message = "cartao-1")
     @Column(name = "numero_cartao")
     private String numeroCartao;
 
@@ -24,6 +27,17 @@ public class CartaoCredito {
     @JoinColumn(name = "codigo_user")
     private UserAccount userAccount;
 
+    @NotNull(message = "cartao-2")
     @Column(name = "data_expiracao")
     private LocalDate dataExpiracao;
+
+    @Transient
+    public Boolean isNovo() {
+        return this.codigo == null;
+    }
+
+    @Transient
+    public Boolean existes() {
+       return this.codigo != null;
+    }
 }
