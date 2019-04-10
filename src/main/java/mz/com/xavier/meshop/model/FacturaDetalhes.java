@@ -22,4 +22,8 @@ public class FacturaDetalhes {
 
     private Integer quantidade;
 
+    @ManyToOne
+    @JoinColumn(name = "codigo_factura")
+    private Factura factura;
+
 }
