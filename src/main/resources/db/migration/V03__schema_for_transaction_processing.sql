@@ -98,9 +98,12 @@ CREATE TABLE carrinho_detalhes(
 codigo BIGSERIAL NOT NULL,
 codigo_produto BIGINT NOT NULL,
 quantidade INTEGER NOT NULL,
+codigo_carrinho BIGINT NOT NULL,
 PRIMARY KEY(codigo),
 CONSTRAINT fk_carrinho_carrinho_detalhes_produto
-  FOREIGN KEY(codigo_produto) REFERENCES produto(codigo)
+  FOREIGN KEY(codigo_produto) REFERENCES produto(codigo),
+CONSTRAINT fk_carrinho_detalhes_carrinho_compras
+  FOREIGN KEY(codigo_carrinho) REFERENCES carrinho_compras(codigo)
 );
 
 CREATE TABLE endereco(
