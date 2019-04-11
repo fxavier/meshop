@@ -13,9 +13,14 @@ import org.mockito.MockitoAnnotations;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.ArgumentMatchers.anyLong;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -64,6 +69,21 @@ class SubcategoriaServiceTest {
 
     @Test
     void findById() {
+      /*  //given
+        Subcategoria subcategoriaInDatabase = new Subcategoria();
+        subcategoriaInDatabase.setCodigo(1L);
+        subcategoriaInDatabase.setNome("Computer");
+        subcategoriaInDatabase.setCategoria(new Categoria());
+        given(mockedSubcategoria.findById(1L)).willReturn(Optional.of(subcategoriaInDatabase));
+
+
+        //when
+        Subcategoria foundSubcategoria = service.findById(1L);
+
+        //then
+      //  then(mockedSubcategoria).should().findById(anyLong());
+        assertThat(foundSubcategoria).isNotNull();
+    */
     }
 
     @Test
