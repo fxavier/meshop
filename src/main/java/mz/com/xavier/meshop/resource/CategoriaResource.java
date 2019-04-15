@@ -5,6 +5,7 @@ import mz.com.xavier.meshop.repository.CategoriaRepository;
 import mz.com.xavier.meshop.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,6 +23,7 @@ public class CategoriaResource {
 
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ROLE_LISTAR_CATEGORIAS') and #oauth2.hasScop('read')")
     public List<Categoria> todas() {
         return categoriaRepository.findAll();
     }
@@ -33,6 +35,7 @@ public class CategoriaResource {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIAS') and #oauth2.hasScop('write')")
     public Categoria create(@Valid @RequestBody Categoria categoria) {
         return categoriaService.save(categoria);
     }
