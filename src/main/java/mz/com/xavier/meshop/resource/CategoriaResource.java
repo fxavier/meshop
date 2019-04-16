@@ -23,7 +23,7 @@ public class CategoriaResource {
 
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ROLE_LISTAR_CATEGORIAS') and #oauth2.hasScop('read')")
+    @PreAuthorize("hasAuthority('ROLE_LISTAR_CATEGORIAS') and #oauth2.hasScope('read')")
     public List<Categoria> todas() {
         return categoriaRepository.findAll();
     }
@@ -35,7 +35,7 @@ public class CategoriaResource {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIAS') and #oauth2.hasScop('write')")
+    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_CATEGORIAS') and #oauth2.hasScope('write')")
     public Categoria create(@Valid @RequestBody Categoria categoria) {
         return categoriaService.save(categoria);
     }
