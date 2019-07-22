@@ -1,15 +1,3 @@
-CREATE TABLE user_account(
-codigo BIGSERIAL NOT NULL,
-nome VARCHAR(250) NOT NULL,
-email VARCHAR(250) NOT NULL,
-password VARCHAR(500) NOT NULL,
-phone VARCHAR(100),
-numero_visitas INTEGER,
-numero_transacoes INTEGER,
-valor_total_transacao NUMERIC(19, 2),
-data_criacao DATE,
-PRIMARY KEY(codigo)
-);
 
 CREATE TABLE user_session(
 codigo BIGSERIAL NOT NULL,
