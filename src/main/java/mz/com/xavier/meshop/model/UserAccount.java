@@ -21,6 +21,10 @@ public class UserAccount {
 
     private String nome;
 
+    private String sobrenome;
+
+    private String apelido;
+
     private String email;
 
     private String password;

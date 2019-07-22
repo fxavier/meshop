@@ -53,23 +53,35 @@ public class Produto {
     @NotNull(message = "produto-4")
     private Long quantidade;
 
-    @Column(name = "img_url1")
-    private String imgUrl1;
+    private String image1;
 
-    @Column(name = "img_url2")
-    private String imgUrl2;
+    @Column(name = "content_type1")
+    private String contentType1;
 
-    @Column(name = "img_url3")
-    private String imgUrl3;
+    private String image2;
 
-    @Column(name = "img_url4")
-    private String imgUrl4;
+    @Column(name = "content_type2")
+    private String contentType2;
 
-    @Column(name = "img_url5")
-    private String imgUrl5;
+    private String image3;
 
-    @Column(name = "img_url6")
-    private String imgUrl6;
+    @Column(name = "content_type3")
+    private String contentType3;
+
+    private String image4;
+
+    @Column(name = "content_type4")
+    private String contentType4;
+
+    private String image5;
+
+    @Column(name = "content_type5")
+    private String contentType5;
+
+    private String image6;
+
+    @Column(name = "content_type6")
+    private String contentType6;
 
     @NotNull(message = "produto-5")
     @ManyToOne
