@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class UsuarioGrupoId implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @ManyToOne
     @JoinColumn(name = "codigo_usuario")
     private UserAccount userAccount;

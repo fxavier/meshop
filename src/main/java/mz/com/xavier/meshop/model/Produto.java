@@ -1,3 +1,4 @@
+
 package mz.com.xavier.meshop.model;
 
 import lombok.Data;
@@ -7,6 +8,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "produto")
@@ -26,15 +29,14 @@ public class Produto {
 
     private String descricao;
 
+    @Column(name = "preco_antigo")
+    private BigDecimal precoAntigo;
+
     @NotNull(message = "produto-2")
-    @Column(name = "preco_compra")
-    private BigDecimal precoCompra;
+    @Column(name = "preco_novo")
+    private BigDecimal precoNovo;
 
-    @NotNull(message = "produto-3")
-    @Column(name = "preco_venda")
-    private BigDecimal precoVenda;
-
-    private BigDecimal iva;
+  /*  private BigDecimal iva;
 
     @Column(name = "preco_iva")
     private BigDecimal precoComIva;
@@ -48,42 +50,15 @@ public class Produto {
     private BigDecimal stockMinimo;
 
     @Column(name = "stock_max")
-    private BigDecimal stockMaximo;
+    private BigDecimal stockMaximo;*/
 
-    @NotNull(message = "produto-4")
+    @NotNull(message = "produto-3")
     private Long quantidade;
 
-    private String image1;
+    @OneToMany
+    private List<Imagem> imagens;
 
-    @Column(name = "content_type1")
-    private String contentType1;
-
-    private String image2;
-
-    @Column(name = "content_type2")
-    private String contentType2;
-
-    private String image3;
-
-    @Column(name = "content_type3")
-    private String contentType3;
-
-    private String image4;
-
-    @Column(name = "content_type4")
-    private String contentType4;
-
-    private String image5;
-
-    @Column(name = "content_type5")
-    private String contentType5;
-
-    private String image6;
-
-    @Column(name = "content_type6")
-    private String contentType6;
-
-    @NotNull(message = "produto-5")
+    @NotNull(message = "produto-4")
     @ManyToOne
     @JoinColumn(name = "codigo_subcategoria")
     private Subcategoria subcategoria;
